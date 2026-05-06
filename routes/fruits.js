@@ -11,4 +11,8 @@ router.get('/', fruits.index)
 // sets parameter to be callable by params.name
 router.get('/:name', fruits.findFruit)
 
+//creating a fruit and adding it
+router.post('/', fruits.createFruit)
+
+
 module.exports = router

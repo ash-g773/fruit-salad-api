@@ -30,6 +30,20 @@ class Fruit {
 
         return fruit
     }
+
+    static create(data) {
+        const newFruit = data
+        const fruit = fruits.find(fruit => fruit.name.toLowerCase() == data.name.toLowerCase())
+
+        if (fruit) {
+            throw "fruit exists already"
+        } else {
+            newFruit["id"] = fruits.length + 1
+            fruits.push(newFruit)
+            return new Fruit(newFruit)
+        }
+        
+    }
 }
 
 module.exports = Fruit

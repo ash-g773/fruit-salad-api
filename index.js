@@ -1,4 +1,4 @@
-// run the actual program
+// ENTRYPOINT - run the actual program
 
 //clg shortcut for console.log()
 // get data

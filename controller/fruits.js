@@ -27,7 +27,20 @@ const findFruit = async (req, res) => {
     }
 }
 
+const createFruit = async (req, res) => {
+    const fruitData = req.body
+
+    try {
+        const fruitObj = await Fruit.create(fruitData)
+        res.status(200).send(fruitObj)
+    } catch(err) {
+        // http status 409 for conflict
+        res.status(409).send({error: err})
+    }
+}
+
 module.exports = {
     index,
     findFruit,
+    createFruit,
 }
