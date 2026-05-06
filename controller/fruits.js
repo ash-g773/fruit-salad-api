@@ -15,6 +15,7 @@ const index = async (req, res) => {
 }
 
 const findFruit = async (req, res) => {
+    // grab parameters to be used + assign
     const name = req.params.name.toLowerCase()
 
     try {

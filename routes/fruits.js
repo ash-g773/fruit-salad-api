@@ -8,6 +8,7 @@ const fruits = require("../controller/fruits")
 // maps endpoint '/' to fruits.index controller function
 // doesnt need the brackets because its middleware - more interested in the object than the function
 router.get('/', fruits.index)
+// sets parameter to be callable by params.name
 router.get('/:name', fruits.findFruit)
 
 module.exports = router
