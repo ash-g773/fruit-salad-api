@@ -13,6 +13,8 @@ class Fruit {
         this.nutritions = fruit.nutritions
     }
 
+    // add function that finds the fruit
+
     static showAll() {
         return fruits.map(f => new Fruit(f))
     }
@@ -43,6 +45,21 @@ class Fruit {
             return new Fruit(newFruit)
         }
         
+    }
+
+    // need to access object instance info like name etc
+    update(data) {
+        // what data cannot be updated? name and id? just id
+        const fruitToUpdate = fruits.find(fruit => fruit.name.toLowerCase() === this.name.toLowerCase())
+
+        if (fruitToUpdate) {
+            // update relevant details
+            fruitToUpdate.name = data.name
+            fruitToUpdate.family = data.family
+            return new Fruit(fruitToUpdate)
+        } else {
+            throw "this fruit doesnt exist"
+        }
     }
 }
 
