@@ -12,4 +12,8 @@ app.get('/', (req, res) => {
 // useful for multiple roots ! i.e. /fruits/1 and fruits/id=999 etc
 app.use('/fruits', fruits)
 
+//when we dont pass a route, this function will run on all routes
+// converts all html bodies sent into json
+app.use(express.json())
+
 module.exports = app
