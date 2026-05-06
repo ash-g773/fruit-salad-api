@@ -14,6 +14,19 @@ const index = async (req, res) => {
     
 }
 
+const findFruit = async (req, res) => {
+    const name = req.params.name.toLowerCase()
+
+    try {
+        const fruitName = await Fruit.getFruit(name)
+        res.status(200).send(fruitName)
+
+    } catch(err) {
+        res.status(500).send({error: err})
+    }
+}
+
 module.exports = {
     index,
+    findFruit,
 }
