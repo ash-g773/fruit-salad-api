@@ -11,8 +11,12 @@ router.get('/', fruits.index)
 // sets parameter to be callable by params.name
 router.get('/:name', fruits.findFruit)
 
-//creating a fruit and adding it
+//creating a fruit and adding it with fruit data passed in the html request body
 router.post('/', fruits.createFruit)
 
+//update fruit data - name passed in as request parameter and update data passed in html request body
+router.patch('/:name', fruits.updateFruit)
+
+router.delete('/delete/:name', fruits.deleteFruit)
 
 module.exports = router

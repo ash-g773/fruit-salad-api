@@ -61,6 +61,21 @@ class Fruit {
             throw "this fruit doesnt exist"
         }
     }
+
+    //delete fruit
+    delete() {
+        const deletedFruit = fruits.find(fruit => fruit.name.toLowerCase() === this.name.toLowerCase())
+        if (deletedFruit) {
+            const index = fruits.indexOf(deletedFruit)
+            //splice removes 1 item from the index passed in
+            const removedFruit = fruits.splice(index, 1)
+            console.log(removedFruit)
+            return new Fruit(removedFruit[0])
+        } else {
+            throw "this fruit doesnt exist"
+        }
+
+    }
 }
 
 module.exports = Fruit

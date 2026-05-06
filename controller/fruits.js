@@ -41,13 +41,25 @@ const createFruit = async (req, res) => {
 
 const updateFruit = async (req, res) => {
     const name = req.params.name.toLowerCase()
-    const fruitUpdate = req.body
 
     try {
-        const fruit = await Fruit.findFruit(name)
-        const updatedFruit = await fruit.update(fruitUpdate)
+        const fruit = await Fruit.getFruit(name)
+        const updatedFruit = await fruit.update(req.body)
+        res.status(200).send(updatedFruit)
     } catch(err) {
         // http status 404 for not found
+        res.status(404).send({error: "Error thrown"})
+    }
+}
+
+const deleteFruit = async (req, res) => {
+    const name = req.params.name.toLowerCase()
+
+    try {
+        const fruit = await Fruit.getFruit(name)
+        const deletedFruit = await fruit.delete()
+        res.status(200).send(deletedFruit)
+    } catch(err) {
         res.status(404).send({error: err})
     }
 }
@@ -57,4 +69,5 @@ module.exports = {
     findFruit,
     createFruit,
     updateFruit,
+    deleteFruit,
 }
