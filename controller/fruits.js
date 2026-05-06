@@ -39,8 +39,22 @@ const createFruit = async (req, res) => {
     }
 }
 
+const updateFruit = async (req, res) => {
+    const name = req.params.name.toLowerCase()
+    const fruitUpdate = req.body
+
+    try {
+        const fruit = await Fruit.findFruit(name)
+        const updatedFruit = await fruit.update(fruitUpdate)
+    } catch(err) {
+        // http status 404 for not found
+        res.status(404).send({error: err})
+    }
+}
+
 module.exports = {
     index,
     findFruit,
     createFruit,
+    updateFruit,
 }
