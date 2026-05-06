@@ -19,20 +19,17 @@ class Fruit {
 
     static getFruit(name) {
         // using find not filter - find is good for returning one object, filter returns array
-        const fruit = fruits.find((fruit) => fruit.name.toLowerCase() == name)
+        const fruit = fruits.find(fruit => fruit.name.toLowerCase() == name)
 
         if (fruit) {
             return new Fruit(fruit)
         } else {
-            return "fruit not found"
+            throw "fruit not found"
         }
 
 
         return fruit
     }
 }
-
-// const testFruit = fruits.filter(fruit => fruit.name.toLowerCase()=="apple")
-// console.log(testFruit);
 
 module.exports = Fruit
