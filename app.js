@@ -1,6 +1,7 @@
 // instructions to run the program
 
 const express = require("express")
+const cors = require("cors")
 const app = express()
 const fruits = require("./routes/fruits")
 
@@ -8,6 +9,8 @@ app.get('/', (req, res) => {
     res.send("Hello from the fruit salad api")
 })
 
+// server doesnt allow request to come in from a different port to its own
+app.use(cors())
 
 //when we dont pass a route, this function will run on all routes
 // converts all html bodies sent into json
