@@ -6,10 +6,13 @@
 // convert to response 
 // send it back...
 
+// add values in .env to config using dotenv module
+require('dotenv').config()
+const port = process.env.PORT
+
 //daemon = applications running in the background - using nodemon
 // uses constructor to create an express application (object) instance
 const app = require('./app')
-const port = 3000
 
 // this functionality will move to another layer
 // // when client makes get request to '/' (endpoint) heres what to do
